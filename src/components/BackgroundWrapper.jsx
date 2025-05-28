@@ -13,9 +13,28 @@ const BackgroundWrapper = ({ children, currentVibe = 'default' }) => {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${vibeBackgrounds[currentVibe] || vibeBackgrounds.default} transition-all duration-1000`}>
+    <div className={`min-h-screen bg-gradient-to-br ${vibeBackgrounds[currentVibe] || vibeBackgrounds.default} transition-all duration-1000 relative overflow-hidden`}>
+      {/* Animated background particles */}
+      <div className="absolute inset-0">
+        <div className="particle particle-1"></div>
+        <div className="particle particle-2"></div>
+        <div className="particle particle-3"></div>
+        <div className="particle particle-4"></div>
+        <div className="particle particle-5"></div>
+        <div className="particle particle-6"></div>
+      </div>
+      
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-10"></div>
-      <div className="relative z-10">{children}</div>
+      
+      {/* Glassmorphism overlay */}
+      <div className="absolute inset-0 backdrop-blur-sm bg-white bg-opacity-5"></div>
+      
+      {/* Content */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+        {children}
+      </div>
+      
       <CustomStyles />
     </div>
   );

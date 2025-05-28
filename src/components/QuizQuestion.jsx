@@ -10,17 +10,35 @@ const QuizQuestion = ({ question, onAnswer, questionIndex, totalQuestions }) => 
     setTimeout(() => {
       onAnswer(option);
       setSelectedAnswer(null);
-    }, 500);
+    }, 600);
   };
 
   return (
-    <div className="max-w-2xl mx-auto text-center px-6">
-      <ProgressBar current={questionIndex + 1} total={totalQuestions} />
+    <div className="max-w-3xl mx-auto text-center px-6 slide-in">
+      {/* Progress section */}
       <div className="mb-8">
-        <span className="text-2xl mb-4 block">{question.emoji}</span>
-        <h2 className="text-3xl font-bold text-white mb-8">{question.text}</h2>
+        <div className="text-white text-opacity-80 text-sm mb-2">
+          Question {questionIndex + 1} of {totalQuestions}
+        </div>
+        <ProgressBar current={questionIndex + 1} total={totalQuestions} />
       </div>
-      <div className="space-y-3">
+      
+      {/* Question card */}
+      <div className="glass rounded-3xl p-8 shadow-2xl mb-6 hover-lift">
+        {/* Emoji with floating effect */}
+        <div className="relative mb-6">
+          <span className="text-8xl mb-4 block float-animation">{question.emoji}</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 blur-xl animate-pulse"></div>
+        </div>
+        
+        {/* Question text */}
+        <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-200 to-blue-200 mb-8 leading-tight">
+          {question.text}
+        </h2>
+      </div>
+      
+      {/* Options */}
+      <div className="space-y-4">
         {question.options.map((option, index) => (
           <QuestionOption
             key={index}
@@ -28,6 +46,22 @@ const QuizQuestion = ({ question, onAnswer, questionIndex, totalQuestions }) => 
             onClick={() => handleOptionClick(option)}
             isSelected={selectedAnswer === option}
             index={index}
+          />
+        ))}
+      </div>
+      
+      {/* Decorative progress indicator */}
+      <div className="mt-8 flex justify-center space-x-2">
+        {Array.from({ length: totalQuestions }, (_, i) => (
+          <div
+            key={i}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === questionIndex
+                ? 'bg-white scale-125'
+                : i < questionIndex
+                ? 'bg-white bg-opacity-60'
+                : 'bg-white bg-opacity-20'
+            }`}
           />
         ))}
       </div>
