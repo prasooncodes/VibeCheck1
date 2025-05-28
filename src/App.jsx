@@ -1,10 +1,10 @@
 import React from 'react';
-import useQuizLogic from '../../src/hooks/useQuizLogic';
-import BackgroundWrapper from '../../src/components/BackgroundWrapper';
-import WelcomeScreen from '../../src/components/WelcomeScreen';
-import QuizQuestion from '../../src/components/QuizQuestion';
-import ResultDisplay from '../../src/components/ResultDisplay';
-import ConfettiEffect from '../../src/components/ConfettiEffect';
+import useQuizLogic from './hooks/useQuizLogic';
+import BackgroundWrapper from './components/BackgroundWrapper';
+import WelcomeScreen from './components/WelcomeScreen';
+import QuizQuestion from './components/QuizQuestion';
+import ResultDisplay from './components/ResultDisplay';
+import ConfettiEffect from './components/ConfettiEffect';
 
 const App = () => {
   const {
