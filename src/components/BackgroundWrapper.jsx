@@ -18,7 +18,7 @@ const BackgroundWrapper = ({ children, currentVibe = 'default' }) => {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${vibeBackgrounds[currentVibe] || vibeBackgrounds.default} transition-all duration-1000 relative overflow-hidden`}>
-      {/* Hidden div to ensure Tailwind includes all gradient classes */}
+      
       <div className="hidden
         from-blue-400 via-purple-500 to-pink-400
         from-yellow-400 via-orange-500 to-red-500
@@ -32,7 +32,7 @@ const BackgroundWrapper = ({ children, currentVibe = 'default' }) => {
         from-blue-500 via-cyan-400 to-teal-300
         from-indigo-600 via-purple-600 to-pink-600
       "></div>
-      {/* Animated background particles */}
+      
       <div className="absolute inset-0">
         <div className="particle particle-1"></div>
         <div className="particle particle-2"></div>
@@ -42,13 +42,13 @@ const BackgroundWrapper = ({ children, currentVibe = 'default' }) => {
         <div className="particle particle-6"></div>
       </div>
       
-      {/* Gradient overlay */}
+      
       <div className="absolute inset-0 bg-black bg-opacity-10"></div>
       
-      {/* Glassmorphism overlay */}
+      
       <div className="absolute inset-0 backdrop-blur-sm bg-white bg-opacity-5"></div>
       
-      {/* Content */}
+      
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         {children}
       </div>

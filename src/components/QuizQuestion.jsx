@@ -15,7 +15,7 @@ const QuizQuestion = ({ question, onAnswer, questionIndex, totalQuestions }) => 
 
   return (
     <div className="max-w-3xl mx-auto text-center px-6 py-10 slide-in">
-      {/* Progress section */}
+      
       <div className="mb-10">
         <div className="text-white text-opacity-80 text-sm mb-3">
           Question {questionIndex + 1} of {totalQuestions}
@@ -23,21 +23,21 @@ const QuizQuestion = ({ question, onAnswer, questionIndex, totalQuestions }) => 
         <ProgressBar current={questionIndex + 1} total={totalQuestions} />
       </div>
 
-      {/* Question card */}
+      
       <div className="glass rounded-3xl p-10 shadow-2xl mb-12 hover-lift">
-        {/* Emoji with floating effect */}
+        
         <div className="relative mb-8 flex justify-center">
           <span className="text-6xl mb-6 block float-animation">{question.emoji}</span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 blur-xl animate-pulse"></div>
         </div>
 
-        {/* Question text */}
+        
         <h2 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-200 to-blue-200 mb-12 leading-tight">
           {question.text}
         </h2>
       </div>
 
-      {/* Options as a list */}
+      
       <ul className="flex flex-col gap-6 md:gap-8 mb-24 list-none px-0">
         {question.options.map((option, index) => (
           <li key={index} className="w-full">
@@ -52,7 +52,7 @@ const QuizQuestion = ({ question, onAnswer, questionIndex, totalQuestions }) => 
         ))}
       </ul>
 
-      {/* Decorative progress indicator */}
+    
       <div className="mt-10 flex justify-center space-x-3">
         {Array.from({ length: totalQuestions }, (_, i) => (
           <div
