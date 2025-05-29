@@ -24,20 +24,118 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Vibe Check App</title>
   </head>
+  <style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    /* Add a linear gradient background */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  }
+  #root {
+    min-height: 100vh;
+  }
+</style>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div id="root" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+      <div class="welcome-card">
+        <h1>Vibe Check App</h1>
+        <p>Welcome! Set the mood, track your vibes, and enjoy a beautiful experience.<br>
+        Ready to check your vibe?</p>
+        <button class="start-btn" onclick="alert('Get Started clicked!')">
+        Get Started
+        </button>
+      </div>
+    </div>
+   
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <style>
+        body, html {
+        font-family: 'Roboto', Arial, sans-serif;
+        background: linear-gradient(120deg, #ff9a9e 0%, #fad0c4 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        }
+        /* Animated gradient overlay */
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 0;
+        background: linear-gradient(270deg, #fbc2eb 0%, #a6c1ee 100%);
+        opacity: 0.5;
+        animation: gradientMove 10s ease-in-out infinite alternate;
+        pointer-events: none;
+        }
+        @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+        }
+        /* Floating welcome card */
+        .welcome-card {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        border-radius: 24px;
+        padding: 2.5rem 2.5rem 2rem 2.5rem;
+        max-width: 400px;
+        text-align: center;
+        z-index: 2;
+        animation: fadeInDown 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes fadeInDown {
+        0% { opacity: 0; transform: translate(-50%, -40px);}
+        100% { opacity: 1; transform: translate(-50%, 0);}
+        }
+        .welcome-card h1 {
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-size: 2.5rem;
+        margin: 0 0 0.5rem 0;
+        color: #ff6f91;
+        letter-spacing: 1px;
+        }
+        .welcome-card p {
+        font-size: 1.1rem;
+        color: #444;
+        margin-bottom: 1.5rem;
+        }
+        .welcome-card .start-btn {
+        background: linear-gradient(90deg, #ff6f91 0%, #ffb86c 100%);
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 2.2rem;
+        font-size: 1.1rem;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(255, 111, 145, 0.15);
+        transition: background 0.3s, transform 0.2s;
+        }
+        .welcome-card .start-btn:hover {
+        background: linear-gradient(90deg, #ffb86c 0%, #ff6f91 100%);
+        transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 600px) {
+        .welcome-card {
+          padding: 1.2rem 0.8rem 1rem 0.8rem;
+          max-width: 95vw;
+        }
+        .welcome-card h1 {
+          font-size: 2rem;
+        }
+        }
+      </style>
+      
   </body>
 </html>

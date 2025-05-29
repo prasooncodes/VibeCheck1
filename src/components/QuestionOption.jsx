@@ -11,7 +11,7 @@ const QuestionOption = ({ option, onClick, isSelected, index }) => (
     }`}
     style={{ animationDelay: `${index * 0.1}s` }}
   >
-    {/* Selection indicator */}
+    {}
     <div className={`absolute top-4 right-4 w-6 h-6 rounded-full border-2 transition-all duration-300 ${
       isSelected 
         ? 'bg-purple-600 border-purple-600' 
@@ -22,7 +22,7 @@ const QuestionOption = ({ option, onClick, isSelected, index }) => (
       )}
     </div>
     
-    {/* Option content */}
+    {}
     <div className="pr-10">
       <span className={`text-lg font-semibold transition-all duration-300 ${
         isSelected ? 'text-purple-700' : 'text-white group-hover:text-pink-100'
@@ -30,18 +30,36 @@ const QuestionOption = ({ option, onClick, isSelected, index }) => (
         {option.text}
       </span>
     </div>
-    
-    {/* Hover effect overlay */}
+    {}
+    <style jsx>{`
+      .centered-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    `}</style>
+    {}
     <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${
       isSelected ? 'opacity-20' : ''
     }`}></div>
     
-    {/* Shimmer effect */}
+    
     {isSelected && (
       <div className="absolute inset-0 rounded-2xl shimmer"></div>
     )}
+
     
-    {/* Border glow */}
+    <div
+      className={`absolute inset-0 rounded-2xl transition-all duration-300 pointer-events-none ${
+        isSelected
+          ? 'bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100 opacity-70'
+          : 'bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 opacity-30'
+      }`}
+      style={{ zIndex: -1 }}
+    ></div>
+
+    
     <div className={`absolute inset-0 rounded-2xl border transition-all duration-300 ${
       isSelected 
         ? 'border-purple-400 border-opacity-50' 

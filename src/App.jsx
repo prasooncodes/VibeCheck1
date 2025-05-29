@@ -1,6 +1,4 @@
-// App.jsx remains largely unchanged since it's the main orchestrator
-// The existing implementation is already well-structured
-// No significant UI changes needed here as it's mainly logic
+
 import React from 'react';
 import useQuizLogic from './hooks/useQuizLogic';
 import BackgroundWrapper from './components/BackgroundWrapper';
@@ -10,8 +8,7 @@ import ResultDisplay from './components/ResultDisplay';
 import ConfettiEffect from './components/ConfettiEffect';
 
 const App = () => {
-  // Existing implementation is good
-  // Keep all the logic and structure as is
+  
   const {
     questions,
     currentQuestionIndex,
@@ -26,7 +23,7 @@ const App = () => {
   const currentVibe = result ? result.title.toLowerCase().split(' ')[0] : 'default';
 
   return (
-    <BackgroundWrapper currentVibe={currentVibe}>
+    <BackgroundWrapper currentVibe="default">
       <ConfettiEffect show={!!result} />
       {!hasStarted && !result && (
         <WelcomeScreen onStart={() => setHasStarted(true)} />
